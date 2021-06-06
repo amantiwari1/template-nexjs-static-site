@@ -1,10 +1,13 @@
-import GlobalStyles from '../styles/GlobalStyles'
+import Layout from 'components/Layout';
+import GlobalStyles from 'styles/GlobalStyles';
 
 const App = ({ Component, pageProps }) => (
   <>
-    <GlobalStyles />
-    <Component {...pageProps} />
+    <Layout>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </Layout>
   </>
-)
+);
 
-export default App
+export default App;

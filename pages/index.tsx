@@ -1,20 +1,25 @@
-import React from 'react'
-import tw from 'twin.macro'
+import React from 'react';
+import 'twin.macro';
+import useTranslate from 'utils/useTranslate';
+import Link from 'next/link';
 
-const styles = {
-  // Move long class sets out of jsx to keep it scannable
-  container: ({ hasBackground }) => [
-    tw`flex flex-col items-center justify-center h-screen`,
-    hasBackground && tw`bg-gradient-to-b from-electric to-ribbon`,
-  ],
-}
+const IndexPage = () => {
+  const { HomeData } = useTranslate('home');
 
-const IndexPage = () => (
-  <div css={styles.container({ hasBackground: true })}>
-    <div tw="flex flex-col justify-center h-full gap-y-5">
-      <h1>Hello</h1>
+  return (
+    <div>
+      <div tw="flex flex-col justify-center h-full gap-y-5">
+        <h1>{HomeData.title}</h1>
+
+        <Link href="/fr">
+          <a>fr</a>
+        </Link>
+        <Link href="/en-US">
+          <a>en-GB</a>
+        </Link>
+      </div>
     </div>
-  </div>
-)
+  );
+};
 
-export default IndexPage
+export default IndexPage;
